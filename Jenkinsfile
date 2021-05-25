@@ -11,7 +11,7 @@ pipeline {
         }
         stage("Unit test") {
             steps {
-                echo "La parte del test"
+                echo "Aqui va la parte del unit test"
             }
         }
         stage("Code coverage") {
@@ -21,9 +21,7 @@ pipeline {
         }
         stage('SonarQube analysis') {
             steps {
-                withSonarQubeEnv('SonarQubePruebas') {
-                    sh './gradlew sonarqube'
-                }
+               echo "Aqui va el analisis con SonarQube"
             }
         }
     }
