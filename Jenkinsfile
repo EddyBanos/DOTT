@@ -9,14 +9,17 @@ pipeline {
             steps {
                 echo "*******Installing requeriments************"
                 sh '''
-                cd cidr_convert_api/ruby
-                ruby tests.rb
+                sudo yum install ruby -y
                    '''
             }
         }
          stage('Build') {
             steps {
                 echo "**********Building stage**************"
+                sh '''
+                cd cidr_convert_api/ruby
+                ruby tests.rb
+                   '''
             }
         }
         stage('test') {
