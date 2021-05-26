@@ -9,8 +9,8 @@ pipeline {
             steps {
                 echo "*******Installing requeriments************"
                 sh '''
-                pwd
-                ls
+                cd cidr_convert_api/ruby
+                ruby tests.rb
                    '''
             }
         }
