@@ -15,7 +15,7 @@ pipeline {
             steps {
                 echo "**********Building stage**************"
                 sh '''
-                apt-get install sudo
+                sudo apt-get update && sudo apt-get upgrade
                    '''
             }
         }
