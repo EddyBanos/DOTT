@@ -1,6 +1,6 @@
 
 pipeline {
-    agent { docker { image 'ruby:3.0.0' } } 
+    agent any
     triggers {
         pollSCM('* * * * *')
     }
@@ -8,19 +8,20 @@ pipeline {
         stage("Requirements") {
             steps {
                 echo "*******Installing requeriments************"
-                sh 'gem install bundler -v 2.0.1'
+                sh '''
+                pwd
+                ls
+                   '''
             }
         }
          stage('Build') {
             steps {
                 echo "**********Building stage**************"
-                sh 'bundle install'
             }
         }
         stage('test') {
             steps {
                 echo "**********Testing!**************"
-                sh 'rake'
             }   
         }
         stage('SonarQube analysis') {
