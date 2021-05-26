@@ -8,9 +8,7 @@ pipeline {
         stage("Requirements") {
             steps {
                 echo "*******Installing requeriments************"
-                sh '''
-                yum install ruby -y
-                   '''
+                
             }
         }
          stage('Build') {
@@ -18,7 +16,7 @@ pipeline {
                 echo "**********Building stage**************"
                 sh '''
                 cd cidr_convert_api/ruby
-                ruby tests.rb
+                junit tests.rb
                    '''
             }
         }
