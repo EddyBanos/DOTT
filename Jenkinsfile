@@ -9,7 +9,7 @@ pipeline {
             steps {
                 echo "*******Installing requeriments************"
                 sh '''
-                sudo yum install ruby -y
+                yum install ruby -y
                    '''
             }
         }
