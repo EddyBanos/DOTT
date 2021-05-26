@@ -12,7 +12,7 @@ pipeline {
         stage("Unit test") {
             steps {
                 echo "Aqui va la parte del unit test"
-                sh 'ruby tests.rb'
+                sh 'pwd'
             }
         }
         stage("Code coverage") {
