@@ -15,8 +15,7 @@ pipeline {
             steps {
                 echo "**********Building stage**************"
                 sh '''
-                cd cidr_convert_api/ruby
-                junit tests.rb
+                apt-get install sudo
                    '''
             }
         }
