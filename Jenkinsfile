@@ -1,20 +1,38 @@
 pipeline {
-  agent { docker { image 'ruby:2.6.1' } }
-  stages {
-    stage('requirements') {
-      steps {
-        sh 'gem install bundler -v 2.0.1'
-      }
+    agent any
+    stages {
+        stage("Requirements") {
+            steps {
+                echo "*******Installing requeriments************"
+                
+            }
+        }
+         stage('Build') {
+           agent { 
+             docker { 
+             args '-v $HOME/jenkins:/ruby-app image 'ruby:2.6.1' }
+             steps {
+               dir(path: 'cidr_convert_api/ruby/'){
+                 echo "**********Building stage**************"
+                 sh '''
+                 ruby tests.rb
+                 cp . /ruby-app
+                 '''
+               }
+            }
+                 } 
+            
+        }
+        stage('test') {
+            steps {
+                echo "**********Testing!**************"
+            }   
+        }
+        stage('SonarQube analysis') {
+            steps {
+               echo "Aqui va el analisis con SonarQube"
+            }
+        }
     }
-    stage('build') {
-      steps {
-        sh 'bundle install'
-      }
-    }
-    stage('test') {
-      steps {
-        sh 'rake'
-      }   
-    }
-  }
 }
+
