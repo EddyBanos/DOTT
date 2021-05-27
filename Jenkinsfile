@@ -16,17 +16,14 @@ pipeline {
         	    echo "Code coverage phase"
          	}
         }
-        stage('SonarQube analysis') {
 //           steps {
 //                withSonarQubeEnv('SonarQubePruebas') {
 //                    sh './gradlew sonarqube'
 //                }
 //            }
-            steps {
-                echo "SonarQube analysis phase"
-        	    withSonarQubeEnv('Sonarqube', envOnly: true) {
-                    println ${env.SONAR_HOST_URL} 
-                }
+        stage('SonarQube analysis') {
+    withSonarQubeEnv(installationName: 'Sonarqube') { 
+    }
          	}
         }
     }
