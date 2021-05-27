@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-#ruby=2.5.1
+#ruby=2.6.1
 #
 ruby-version
 ruby 'RUBY_VERSION', :engine => 'ENGINE', :engine_version => 'ENGINE_VERSION', :patchlevel => 'RUBY_PATCHLEVEL'
