@@ -2,23 +2,26 @@ pipeline {
     agent any
     stages {
         stage("Requirements") {
-            steps {
-                echo "*******Installing requeriments************"
-                
+             args '-v $HOME/jenkins:/ruby-app image 'ruby:2.6.1'
+            agent {
+                docker {
+                    image 'ruby:2.6.1-4c4a'
+                    reuseNode true
+                }
             }
-        }
-         stage('Build') {
-           agent { 
-             docker { 
-             args '-v $HOME/jenkins:/ruby-app image 'ruby:2.6.1' }
-             steps {
-               dir(path: 'cidr_convert_api/ruby/'){
+            steps {
+                sh 'ruby -v'
+                dir(path: 'cidr_convert_api/ruby/'){
                  echo "**********Building stage**************"
                  sh '''
                  ruby tests.rb
                  cp . /ruby-app
                  '''
-               }
+            }
+        }
+         stage('Build') { 
+             steps{
+                 echo "**********Building stage**************"
             }
                  } 
             
@@ -35,4 +38,3 @@ pipeline {
         }
     }
 }
-#
