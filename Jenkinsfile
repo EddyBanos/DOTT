@@ -1,34 +1,20 @@
-
 pipeline {
-    agent any
-    triggers {
-        pollSCM('* * * * *')
+  agent { docker { image 'ruby:2.6.1' } }
+  stages {
+    stage('requirements') {
+      steps {
+        sh 'gem install bundler -v 2.0.1'
+      }
     }
-    stages {
-        stage("Requirements") {
-            steps {
-                echo "*******Installing requeriments************"
-                
-            }
-        }
-         stage('Build') {
-            steps {
-                echo "**********Building stage**************"
-                sh '''
-                su -
-                sudo apt-get update && sudo apt-get upgrade
-                   '''
-            }
-        }
-        stage('test') {
-            steps {
-                echo "**********Testing!**************"
-            }   
-        }
-        stage('SonarQube analysis') {
-            steps {
-               echo "Aqui va el analisis con SonarQube"
-            }
-        }
+    stage('build') {
+      steps {
+        sh 'bundle install'
+      }
     }
+    stage('test') {
+      steps {
+        sh 'rake'
+      }   
+    }
+  }
 }
