@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby 'RUBY_VERSION', :engine => 'ENGINE', :engine_version => 'ENGINE_VERSION',
-  :patchlevel => 'RUBY_PATCHLEVEL'
+ruby 'RUBY_VERSION', :engine => 'ENGINE', :engine_version => 'ENGINE_VERSION', :patchlevel => 'RUBY_PATCHLEVEL'
+ruby 2.5.1
 gem ‘rspec’, :require => false, :group => :testgem ‘rspec_junit_formatter’, :require => false, :group => :test
 gem 'sinatra'
