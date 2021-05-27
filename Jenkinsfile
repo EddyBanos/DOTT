@@ -1,40 +1,30 @@
 pipeline {
     agent any
     stages {
-        stage('Requirements') {
-            agent {
-                docker {
-                    image 'ruby:2.6.1-4c4a'
-                    reuseNode true
-                }
-            }
+        stage("Compile") {
             steps {
-                sh 'ruby -v'
-                dir(path: 'cidr_convert_api/ruby/'){
-                 echo "**********Building stage*************"
-                 sh '''
-                 ruby tests.rb
-                 cp . /ruby-app
-                 '''
+                echo "Compile phase"
             }
         }
-        }
-         stage('Build') { 
-             steps{
-                 echo "**********Building stage**************"
-            }
-                 } 
-            
-        }
-        stage('test') {
+        stage("Unit test") {
             steps {
-                echo "**********Testing!**************"
-            }   
+                echo "Unit test phase"
+            }
+        }
+        stage("Code coverage") {
+            steps {
+        	    echo "Code coverage phase"
+         	}
         }
         stage('SonarQube analysis') {
+//           steps {
+//                withSonarQubeEnv('SonarQubePruebas') {
+//                    sh './gradlew sonarqube'
+//                }
+//            }
             steps {
-               echo "Aqui va el analisis con SonarQube"
-            }
+        	    echo "SonarQube analysis phase"
+         	}
         }
     }
 }
