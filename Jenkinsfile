@@ -11,7 +11,7 @@ pipeline {
             steps {
                 sh 'ruby -v'
                 dir(path: 'cidr_convert_api/ruby/'){
-                 echo "**********Building stage**************"
+                 echo "**********Building stage*************"
                  sh '''
                  ruby tests.rb
                  cp . /ruby-app
