@@ -23,7 +23,10 @@ pipeline {
 //                }
 //            }
             steps {
-        	    echo "SonarQube analysis phase"
+                echo "SonarQube analysis phase"
+        	    withSonarQubeEnv('My SonarQube Server', envOnly: true) {
+                    println ${env.SONAR_HOST_URL} 
+                }
          	}
         }
     }
