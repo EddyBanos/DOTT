@@ -2,7 +2,6 @@ pipeline {
     agent any
     stages {
         stage("Requirements") {
-             args '-v $HOME/jenkins:/ruby-app image 'ruby:2.6.1'
             agent {
                 docker {
                     image 'ruby:2.6.1-4c4a'
