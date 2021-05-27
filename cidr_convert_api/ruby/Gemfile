@@ -1,3 +1,4 @@
 source 'https://rubygems.org'
+ruby '2.5.1'
 gem ‘rspec’, :require => false, :group => :testgem ‘rspec_junit_formatter’, :require => false, :group => :test
 gem 'sinatra'
