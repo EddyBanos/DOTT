@@ -20,10 +20,13 @@ pipeline {
 //                withSonarQubeEnv('SonarQubePruebas') {
 //                    sh './gradlew sonarqube'
 //                }
-//            }
-        stage('SonarQube analysis') {
-    withSonarQubeEnv(installationName: 'Sonarqube') { 
-    }
-         	}
+//            }stage("build & SonarQube analysis") {
+            agent any
+            steps {
+              withSonarQubeEnv('My SonarQube Server') {
+                sh 'mvn clean package sonar:sonar'
+              }
+            }
+          }
         }
     }
