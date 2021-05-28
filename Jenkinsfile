@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'ruby --version'
+                sh 'rvm install "ruby-2.6.1"'
             }
         }
     }
