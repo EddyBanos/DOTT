@@ -1,16 +1,9 @@
 pipeline {
-    agent any
+    agent { docker { image 'ruby' } }
     stages {
-        stage('Build') {
-            agent {
-                docker {
-                    image 'ruby:2.6.1'
-                    // Run the container on the node specified at the top-level of the Pipeline, in the same workspace, rather than on a new node entirely:
-                    reuseNode true
-                }
-            }
+        stage('build') {
             steps {
-                sh 'ruby -v'
+                sh 'ruby --version'
             }
         }
     }
