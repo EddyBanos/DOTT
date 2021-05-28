@@ -1,9 +1,9 @@
 pipeline {
-    agent any
+    agent { docker { image 'ruby' } }
     stages {
         stage('build') {
             steps {
-                sh 'sudo apt install "ruby-2.6.1" -y'
+                sh 'ruby --version'
             }
         }
     }
