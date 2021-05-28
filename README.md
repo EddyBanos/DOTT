@@ -15,7 +15,7 @@ so you can ask us at anything, anytime.
 
 * Communication is important, if you don't have technical problems make sure
 to share your progress.
-
+#
 ## Application Overview
 
 You need to complete a functionality in our API that provides some help to
