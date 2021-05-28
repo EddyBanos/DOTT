@@ -10,7 +10,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'ruby -v
+                sh 'ruby -v'
             }
         }
     }
