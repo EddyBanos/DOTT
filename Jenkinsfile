@@ -12,14 +12,9 @@ pipeline {
     }
     stage('Building '){
       steps{
-        echo "Installing tools"
+        echo "Building"
       }
     }
-      stage('Building '){
-      steps{
-        echo "Installing tools"
-      }
-      }
         stage('Unit Test '){
       steps{
         echo "*******Testing*******"
