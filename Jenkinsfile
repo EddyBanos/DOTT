@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'apt install "ruby-2.6.1"'
+                sh 'sudo apt install "ruby-2.6.1" -y'
             }
         }
     }
