@@ -19,7 +19,7 @@ stages {
            -Dsonar.sources=. \
            -Dsonar.css.node=. \
            -Dsonar.host.url=http://3.233.252.206:9000 \
-           -Dsonar.login=4346c1bbc5f66983e2ba3b76033e5e8308bcd36d
+           -Dsonar.login="4346c1bbc5f66983e2ba3b76033e5e8308bcd36d"
                }
            }
        }
