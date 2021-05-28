@@ -4,6 +4,7 @@ pipeline {
     label 'docker' 
   }
   stages {
+    stage('Installing tools'){
     agent {
       docker{
         label 'docker'
@@ -16,6 +17,7 @@ pipeline {
       sh' curl -sSL https://get.rvm.io | bash -s stable --ruby'
       }
     }
+  }
 }
     /*stage('requirements') {
       steps {
