@@ -16,6 +16,7 @@ pipeline {
       sh' curl -sSL https://get.rvm.io | bash -s stable --ruby'
       }
     }
+}
     /*stage('requirements') {
       steps {
         sh 'gem install bundler -v 2.0.1'
@@ -31,5 +32,4 @@ pipeline {
         sh 'rake'
       }   
     }*/
-  //}
-}
+//}
