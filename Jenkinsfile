@@ -1,32 +1,12 @@
 pipeline {
-    agent any
+    agent {
+        docker { image 'rubi:2.6.1' }
+    }
     stages {
-        stage("Compile") {
+        stage('Test') {
             steps {
-                echo "Compile phase"
+                sh 'ruby -v'
             }
-        }
-        stage("Unit test") {
-            steps {
-                echo "Unit test phase"
-            }
-        }
-        stage("Code coverage") {
-            steps {
-        	    echo "Code coverage phase"
-         	}
-        }
-//           steps {
-//                withSonarQubeEnv('SonarQubePruebas') {
-//                    sh './gradlew sonarqube'
-//                }
-//            }stage("build & SonarQube analysis") {
-            agent any
-            steps {
-              withSonarQubeEnv('Sonarqube') {
-                sh 'mvn clean package sonar:sonar'
-              }
-            }
-          }
         }
     }
+}
